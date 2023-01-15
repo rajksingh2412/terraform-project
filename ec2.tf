@@ -40,7 +40,7 @@ resource "aws_instance" "postgres" {
     vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
 
     # the Public SSH key
-    key_name = "${aws_key_pair.london-region-key-pair.id}"
+    key_name = "${aws_key_pair.key-pair.id}"
 
     user_data = "${file("scripts/postgres.sh")}"
 
@@ -63,7 +63,7 @@ resource "aws_instance" "tomcat" {
     vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
 
     # the Public SSH key
-    key_name = "${aws_key_pair.london-region-key-pair.id}"
+    key_name = "${aws_key_pair.key-pair.id}"
 
     user_data = "${file("scripts/tomcat.sh")}"
 

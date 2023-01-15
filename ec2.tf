@@ -48,6 +48,9 @@ resource "aws_instance" "postgres" {
         user = "${var.EC2_USER}"
         private_key = "${file("${var.PRIVATE_KEY_PATH}")}"
     }
+    tags = {
+         Name = "postgres"
+	}
 }
 
 
@@ -71,6 +74,9 @@ resource "aws_instance" "tomcat" {
         user = "${var.EC2_USER}"
         private_key = "${file("${var.PRIVATE_KEY_PATH}")}"
     }
+    tags = {
+         Name = "tomcat"
+	}
 }
 
 resource "aws_key_pair" "key-pair" {

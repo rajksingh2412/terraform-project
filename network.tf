@@ -57,6 +57,21 @@ resource "aws_security_group" "ssh-allowed" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+    // for postgres
+    ingress {
+        from_port = 5432
+        to_port = 5432
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    // for tomcat    
+    ingress {
+        from_port = 8080
+        to_port = 8080
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+        
 
     tags = {
         Name = "ssh-allowed"
